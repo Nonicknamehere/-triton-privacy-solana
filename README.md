@@ -1,16 +1,40 @@
-# 🔱 Triton Privacy Solana
+# 🔱 Triton Privacy Solana (TPS)
 
-**Institutional Dark Pools on Solana - Compliant Privacy via TEE**
+### TPS with Privacy | The Water Clock of Privacy
 
-Built for Solana Privacy Hack 2026 | Target Bounty: **$11.5k+**
+> **Track:** Solana Privacy Hackathon (2026)
+> **Category:** Compliance Infrastructure / Privacy Layer
 
-## 🎯 Problem
+---
 
-$35 trillion in institutional capital can't access Solana DeFi because:
-- ❌ No compliance infrastructure (KYC/AML/sanctions screening)
-- ❌ MEV bots extract value from every trade
-- ❌ Public mempool reveals trading strategies
-- ❌ Regulatory uncertainty around privacy
+## ⏳ The Paradox: Free vs. Expensive
+
+> *"Information wants to be free. Information also wants to be expensive."*
+> — **Stewart Brand**, 1984
+
+For 36 years, the digital age failed to resolve this tension.
+
+* **Information wants to be free** because the cost of copying it is vanishing (The internet, Blockchains).
+* **Information wants to be expensive** because it is immensely valuable (Alpha, Strategy, Identity).
+
+TradFi made it expensive but closed. Crypto-Anarchy made it free but chaotic.
+**Triton Privacy Solana (TPS)** is the protocol that ticks between these two ideas. It is the **Third Power (Tritos)** that resolves the paradox.
+
+---
+
+## 🕰️ The Third Clock: Civilization is Maintenance
+
+We are used to celebrating innovation, but Stewart Brand teaches us that *"Civilization is Maintenance."* Systems survive not because of disruption, but because of routine care.
+
+Legacy privacy tools (like Tornado Cash) failed not because of code, but because they lacked **maintenance**—they had no mechanism to clean themselves of illicit actors.
+
+**Triton is the Third Clock.**
+
+1. **The Clock of the Long Now:** Inside a mountain, gears turn once a year. *(Civilizational Maintenance)*.
+2. **The Clock of History (2020):** On Solana, the SHA-256 water clock ticks every 400ms. *(Network Consensus)*.
+3. **The Clock of Privacy (2026):** In Triton, the clock ticks within the trade. It maintains the balance between "Free" (Public Verify) and "Expensive" (Private Execute).
+
+---
 
 ## 💡 Solution
 
@@ -141,35 +165,6 @@ Visit `http://localhost:3000`
 4. **Private Execution** → Swap executes in MagicBlock TEE
 5. **Commit to L1** → Result commits back to Solana
 
-### Technical Flow
-
-```typescript
-// 1. Check compliance
-const compliance = await complianceEngine.checkCompliance(walletAddress);
-if (!compliance.allowed) throw new Error('Compliance failed');
-
-// 2. Initialize swap on L1
-const initTx = await program.methods
-  .initializeSwap(amountIn, minAmountOut)
-  .rpc();
-
-// 3. Delegate to TEE
-const delegateTx = await program.methods
-  .delegateSwap()
-  .accounts({ validator: TEE_VALIDATOR })
-  .rpc();
-
-// 4. Execute in TEE (private)
-const executeTx = await teeProgram.methods
-  .executeSwap()
-  .rpc();
-
-// 5. Finalize and commit
-const finalizeTx = await program.methods
-  .finalizeSwap()
-  .rpc();
-```
-
 ## 🛠️ Tech Stack
 
 ### Frontend
@@ -213,41 +208,9 @@ triton-privacy/
 └── README.md                 # This file
 ```
 
-## 🎥 Demo Video Script
+---
 
-**[0:00-0:20] Hook**
-> "Institutions control $35 TRILLION but can't use Solana DEXs. Why? No compliance, MEV bots everywhere, and public addresses. Triton Privacy fixes this."
-
-**[0:20-0:50] Demo**
-> "Watch: I connect wallet → Range checks compliance → PASSED. Now I swap 0.5 SOL. The swap executes in MagicBlock TEE - INVISIBLE to MEV bots. Result commits back to Solana L1. Jupiter gave best price, but execution was PRIVATE."
-
-**[0:50-1:20] Tech**
-> "How it works: Range API screens wallet, MagicBlock TEE executes swap in secure enclave, Jupiter routes through shared liquidity, result commits back to Solana. This is TPS with Privacy."
-
-**[1:20-2:00] Impact**
-> "This unlocks: Dark pools for institutions, Private DeFi without mixers, Compliant privacy at scale. Built with MagicBlock, Range, Jupiter, and Helius."
-
-## 🔐 Security Considerations
-
-### Compliance Layer
-- ✅ OFAC sanctions list screening
-- ✅ Risk scoring (0-100 scale)
-- ✅ Mixer exposure detection
-- ✅ Scam address filtering
-
-### Privacy Layer
-- ✅ TEE attestation verification
-- ✅ Isolated execution environment
-- ✅ No mempool visibility
-- ✅ MEV protection
-
-### Smart Contract
-- ✅ PDA-based account derivation
-- ✅ Bump seed validation
-- ✅ Status checks on state transitions
-- ✅ Signer verification
-
-## 🚧 Roadmap
+## 2026 Roadmap
 
 ### Phase 1: MVP (Current)
 - [x] Range API integration
@@ -270,58 +233,11 @@ triton-privacy/
 - [ ] Analytics dashboard
 - [ ] API for programmatic access
 
-## 📊 Bounty Checklist
+## Team
 
-### MagicBlock PER ($5k)
-- [x] TEE connection setup
-- [x] Account delegation
-- [x] Private execution flow
-- [x] State commitment
-- [ ] Full Rust MXE integration (requires separate project)
+Built by Amir @Jakisheff and Tina @Nonicknamehere for Solana Privacy Hack 2026
 
-### Range API ($1.5k)
-- [x] Wallet risk assessment
-- [x] Sanctions screening
-- [x] Risk score evaluation
-- [x] Batch compliance checks
-
-### Helius RPC ($5k)
-- [x] Enhanced RPC integration
-- [x] Transaction delivery
-- [ ] WebSocket subscriptions
-- [ ] Priority fee optimization
-
-### Jupiter V6 (Core)
-- [x] Quote fetching
-- [x] Route optimization
-- [x] Swap execution
-- [x] Slippage handling
-
-## 🤝 Contributing
-
-This is a hackathon project. For production use:
-1. Implement full MagicBlock MXE in Rust
-2. Add comprehensive error handling
-3. Implement real Jupiter swaps
-4. Add extensive testing
-5. Security audit
-
-## 📄 License
-
-MIT License - see LICENSE file
-
-## 🔗 Links
-
-- **Live Demo:** https://triton-privacy.vercel.app
-- **GitHub:** https://github.com/yourusername/triton-privacy
-- **Video:** [YouTube Link]
-- **Slides:** [Pitch Deck]
-
-## 👥 Team
-
-Built by [Your Name] for Solana Privacy Hack 2026
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - MagicBlock Labs for TEE infrastructure
 - Range Protocol for compliance tools
@@ -331,4 +247,8 @@ Built by [Your Name] for Solana Privacy Hack 2026
 
 ---
 
-**Built with ❤️ for Solana Privacy Hack 2026**
+### License
+
+MIT
+
+> *Stay Hungry. Stay Foolish. Stay Private.*
