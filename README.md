@@ -2,9 +2,7 @@
 
 ### TPS with Privacy | The Water Clock of Privacy
 
-> **Track:** Solana Privacy Hackathon (2026)
-> **Category:** Compliance Infrastructure / Privacy Layer
-
+> **Track:** Privacy tooling 
 ---
 
 ## ⏳ The Paradox: Free vs. Expensive
@@ -36,11 +34,32 @@ Legacy privacy tools (like Tornado Cash) failed not because of code, but because
 
 ---
 
-## 💡 Solution
+## 🎼 The Polyrythmic Architecture
 
-Triton Privacy enables **compliant private swaps** through a 4-layer architecture:
+Triton fragments the transaction into three rhythms to ensure the system endures. This mirrors the **Merman (Semiforma)**—a hybrid capable of living on land (Law) and in water (Liquidity).
 
-### Architecture
+### Rhythm I: Compliance (The Maintenance Layer)
+
+* **Archetype:** The Human Half (Reason & Law).
+* **Tech:** **Range Protocol** & **Solana Attestation Service (SAS)**.
+* **Philosophy:** *Maintenance.* This layer performs the "routine care" of checking attestations (KYC/Sanctions) before the trade executes. If a wallet is dirty, the transaction reverts. This ensures the protocol remains clean, legal, and operational for 10,000 years.
+
+### Rhythm II: Composability (The Deep Rhythm)
+
+* **Archetype:** The Water (Fluidity).
+* **Tech:** **Arcium (MPC)**.
+* **Philosophy:** *Freedom.* Like a Cubist painting, Arcium fragments the transaction data. Nodes compute the trade jointly without any single node seeing the full picture. This allows information to flow freely into Jupiter liquidity pools without leaking value.
+
+### Rhythm III: Performance (The Fast Rhythm)
+
+* **Archetype:** The Treasure (Value).
+* **Tech:** **MagicBlock (TEE & Ephemeral Rollups)**.
+* **Philosophy:** *Expense.* This is where the value is protected.
+* **Note:** By executing trades in hardware-isolated enclaves, we create "pockets of privacy" where data is encrypted and safe from MEV bots. This allows for **High TPS with Privacy**.
+
+---
+
+### Architecture (Live Demo)
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -69,16 +88,35 @@ Layer 4: INFRASTRUCTURE (Helius RPC)
 └─ RPC: https://devnet.helius-rpc.com
 ```
 
-## 🏆 Sponsor Integration
+---
 
-| Sponsor | Technology | Bounty | Integration |
-|---------|-----------|--------|-------------|
-| **MagicBlock** | PER (TEE) | $5,000 | Private swap execution in secure enclave |
-| **Range** | Compliance API | $1,500 | Sanctions screening & risk scoring |
-| **Helius** | RPC Infrastructure | $5,000 | Enhanced transaction delivery |
-| **Jupiter** | V6 Aggregator | Core | Best execution routing |
+## 👤 The Evolution of Ownership: From DYOR to DYOP
 
-**Total Target:** $11,500+
+We believe that privacy is not about hiding; it is about **responsibility**.
+
+* **1985 (The WELL):** "You Own Your Own Words." — *The Era of Speech.*
+* **2009 (Bitcoin):** "You Own Your Own Keys." — *The Era of Sovereignty.*
+* **2017 (The ICO Boom):** "DYOR — Do Your Own Research." — *The Era of Verification.*
+* **2026 (Triton):** **"DYOP — Do Your Own Privacy."** — *The Era of Responsibility.*
+
+**What is DYOP?**
+In Triton, you verify your own compliance (**Range SAS**), you own your own shards (**Arcium**), and you take responsibility for selectively revealing yourself to the world.
+
+---
+
+## 🌊 Blue Ocean Strategy
+
+We are not competing in the "Red Ocean" of mixers fighting regulators. We are sailing into the "Blue Ocean" of Institutional DeFi (The Argonauts).
+
+| Feature | Tornado Cash (Legacy) | Triton Privacy Solana (TPS) |
+| --- | --- | --- |
+| **Philosophy** | Anonymity (Chaos) | **Maintenance (Order)** |
+| **User Paradigm** | Hide | **DYOP (Selectively Reveal)** |
+| **Compliance** | None | **Full (Range SAS)** |
+| **Speed** | ~15 TPS (Slow) | **High TPS with Privacy** (10,000+ via MagicBlock) |
+| **Cost** | High Gas | **Ultra-Low (Light Protocol)** |
+
+---
 
 ## 🚀 Quick Start
 
@@ -142,19 +180,6 @@ anchor deploy --provider.cluster devnet
 anchor keys list
 ```
 
-### Run Frontend
-
-```bash
-# Development
-bun dev
-
-# Production build
-bun build
-bun start
-```
-
-Visit `http://localhost:3000`
-
 ## 📖 How It Works
 
 ### User Flow
@@ -164,49 +189,6 @@ Visit `http://localhost:3000`
 3. **Configure Swap** → User sets amount and output token
 4. **Private Execution** → Swap executes in MagicBlock TEE
 5. **Commit to L1** → Result commits back to Solana
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **Next.js 16** - React framework with App Router
-- **TypeScript** - Type-safe development
-- **Tailwind CSS 4** - Styling
-- **Solana Wallet Adapter** - Wallet integration
-
-### Blockchain
-- **Anchor 0.32.1** - Solana program framework
-- **Solana Web3.js** - Blockchain interaction
-- **MagicBlock SDK** - TEE integration
-- **Jupiter API** - Swap aggregation
-
-### APIs
-- **Range API** - Compliance & risk scoring
-- **Helius RPC** - Enhanced Solana RPC
-- **Jupiter V6** - Liquidity aggregation
-
-## 📁 Project Structure
-
-```
-triton-privacy/
-├── src/
-│   ├── app/
-│   │   ├── page.tsx          # Main application UI
-│   │   ├── layout.tsx        # Root layout with wallet provider
-│   │   └── globals.css       # Global styles
-│   ├── components/
-│   │   └── WalletProvider.tsx # Wallet adapter setup
-│   └── lib/
-│       ├── compliance.ts     # Range API integration
-│       ├── jupiter.ts        # Jupiter swap engine
-│       └── magicblock.ts     # MagicBlock TEE client
-├── programs/
-│   └── triton-privacy/
-│       ├── src/
-│       │   └── lib.rs        # Anchor program
-│       └── Cargo.toml        # Rust dependencies
-├── package.json              # Node dependencies
-└── README.md                 # This file
-```
 
 ---
 
@@ -233,17 +215,11 @@ triton-privacy/
 - [ ] Analytics dashboard
 - [ ] API for programmatic access
 
+---
+
 ## Team
 
 Built by Amir @Jakisheff and Tina @Nonicknamehere for Solana Privacy Hack 2026
-
-## Acknowledgments
-
-- MagicBlock Labs for TEE infrastructure
-- Range Protocol for compliance tools
-- Jupiter Exchange for liquidity aggregation
-- Helius for RPC infrastructure
-- Solana Foundation for the hackathon
 
 ---
 
